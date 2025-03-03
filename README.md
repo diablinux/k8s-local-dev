@@ -8,6 +8,14 @@ Follow the steps below to get your environment up and running in just a minute.
 
 This guide will walk you through the installation and configuration process, ensuring you have a functional kubernetes cluster on your local machine.
 
+Assumptions: 
+- You are using ```homebrew``` -> https://brew.sh/
+- Command line ```developer tools``` is installed -> https://developer.apple.com/xcode/
+
+If developer tools are not installed, go ahead, open your terminal and run:
+
+	xcode-celect --install
+
 ## Make commands
 
 	make setup
