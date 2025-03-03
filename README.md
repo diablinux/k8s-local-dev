@@ -14,7 +14,7 @@ Assumptions:
 
 If developer tools are not installed, go ahead, open your terminal and run:
 
-	xcode-celect --install
+	xcode-select --install
 
 ## Make commands
 
