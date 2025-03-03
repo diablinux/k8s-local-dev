@@ -12,4 +12,4 @@ destroy:
 	podman machine rm -f vm1
 
 uninstall:
-	brew remove -f Brewfile
+	brew rm podman minikube kubectl helm
