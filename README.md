@@ -105,7 +105,7 @@ Keep this in mind depending your folder structure strategy.
 You can bootstrap existing git repositories, or add different repositories, e.g. a repo for the infrastructure, a repo for the cloud resources, a repo for the configurations, an so forth.
 
 ## FluxCD v2
-Here’s a bullet-point list of the **default controllers provisioned by Flux** (as of Flux v2.x) when installed using `flux install` or `flux bootstrap`:
+Here is a list of the **default controllers provisioned by Flux** (as of Flux v2.x) when installed using `flux install` or `flux bootstrap`:
 
 ---
 
