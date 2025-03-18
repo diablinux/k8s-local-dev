@@ -102,6 +102,6 @@ The folder structure should look like:
 
 Keep this in mind depending your folder structure strategy.
 
-You can bootstrap existing git repositories, or add different repositories, e.g. a repo for the infrastructure, a repo for the cloud resources, a repo for the configurations, an so for.
+You can bootstrap existing git repositories, or add different repositories, e.g. a repo for the infrastructure, a repo for the cloud resources, a repo for the configurations, an so forth.
 
 *Final note: You will find my approach on managing cluster addons, apps and cloud resources in the [flux-minikube](https://github.com/diablinux/flux-minikube) repository.*
