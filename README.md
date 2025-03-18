@@ -104,4 +104,53 @@ Keep this in mind depending your folder structure strategy.
 
 You can bootstrap existing git repositories, or add different repositories, e.g. a repo for the infrastructure, a repo for the cloud resources, a repo for the configurations, an so forth.
 
+## FluxCD v2
+Here’s a bullet-point list of the **default controllers provisioned by Flux** (as of Flux v2.x) when installed using `flux install` or `flux bootstrap`:
+
+---
+
+### **Core Controllers (Installed by Default)**  
+- **`source-controller`**  
+  - Manages **artifact acquisition** from sources like:  
+    - Git repositories (`GitRepository`).  
+    - Helm repositories (`HelmRepository`).  
+    - OCI artifacts (container registries).  
+    - Buckets (S3, GCS, Azure Blob).  
+
+- **`kustomize-controller`**  
+  - Applies **Kustomize manifests** to the cluster.  
+  - Watches `Kustomization` resources and reconciles them against the desired state in Git.  
+  - Handles dependency ordering (e.g., `dependsOn`).  
+
+- **`helm-controller`**  
+  - Manages **Helm releases** declaratively.  
+  - Watches `HelmRelease` resources and installs/upgrades charts.  
+  - Integrates with `HelmRepository` and `OCI` sources.  
+
+- **`notification-controller`**  
+  - Handles **alerts and notifications** for Flux events.  
+  - Watches `Alert` and `Provider` resources (e.g., Slack, Microsoft Teams, Discord).  
+  - Sends notifications for reconciliation failures/successes.  
+
+---
+
+### **Optional Controllers (Not Installed by Default)**  
+- **`image-reflector-controller`**  
+  - Scans container registries to **reflect image metadata** (tags, digests).  
+  - Used with `ImageRepository` and `ImagePolicy` resources.  
+
+- **`image-automation-controller`**  
+  - Automatically **updates workloads** when new images are detected.  
+  - Pushes changes back to Git (e.g., updates `deployment.yaml` with new image tags).  
+
+---
+
+### **Key Notes**  
+- Flux’s default installation (`flux install`) includes only the **core controllers** (`source`, `kustomize`, `helm`, `notification`).  
+- To enable **image automation**, you must explicitly install the optional controllers:  
+  ```bash  
+  flux install --components=source-controller,kustomize-controller,helm-controller,notification-controller,image-reflector-controller,image-automation-controller  
+  ```  
+- All controllers run in the `flux-system` namespace by default.  
+
 *Final note: You will find my approach on managing cluster addons, apps and cloud resources in the [flux-minikube](https://github.com/diablinux/flux-minikube) repository.*
