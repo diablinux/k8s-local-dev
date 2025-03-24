@@ -1,6 +1,6 @@
 setup:
 	brew bundle;
-	minikube start --wait -n 2 --cni bridge --driver=docker --container-runtime=containerd
+	minikube start --wait --node=2 --cni="bridge" --driver="docker" --container-runtime="containerd"
 
 destroy:
 	minikube delete --all --purge
