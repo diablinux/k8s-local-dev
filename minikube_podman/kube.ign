@@ -1,0 +1,15 @@
+{
+  "ignition": {
+    "version": "3.5.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcsUxEDky8M0QcCJ4ce9umfP8M+H2757b1GrmlmH/Ix angelcabrera@fedora"
+        ]
+      }
+    ]
+  }
+}
